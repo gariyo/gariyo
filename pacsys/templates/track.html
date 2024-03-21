@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Parcel</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'parcel_details' %}">Parcel Details Available</a></li>
+            <li><a href="{% url 'register_parcel' %}">Parcel Registration</a></li>
+            <li><a href="{% url 'home' %}"> Home</a></li>
+            <li><a href="{% url 'admin_panel' %}">ADMIN PRIVILAGE<br> only</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Track Parcel</h1>
+
+        <form action="{% url 'track_parcel' %}" method="GET">
+            <input type="text" name="tracking_number" placeholder="Enter Tracking Number">
+            <button type="submit">Track</button>
+        </form>
+
+        {% if parcel %}
+            <div>
+                <h2>Parcel Status</h2>
+                <p>Tracking Number: {{ parcel.tracking_number }}</p>
+                <p>Status: {{ parcel.status }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

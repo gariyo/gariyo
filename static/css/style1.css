@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh; /* Set full height of the viewport */
+    margin: 0; /* Remove default margin */
+    /* Remove the background-image property from here */
+}
+
+
+.bg-image {
+    background-image: url('../images/ib.jpg'); /* Relative path to the background image */
+}
+
+.system-icon img {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    border-radius: 50%; /* Make the image circular */
+    margin-bottom: 20px; /* Add space between the image and the heading */
+}
+
+h1 {
+    color: #0f037a;
+}
+
+.welcome-msg {
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.buttons-container {
+    margin-top: 30px;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Add your navbar styling here */
+.navbar {
+    background-color: #007bff; /* Navbar background color */
+    color: #fff; /* Navbar text color */
+    padding: 10px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff; /* Logo text color */
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links li a {
+    color: #fff; /* Navbar link color */
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    text-decoration: underline;
+}

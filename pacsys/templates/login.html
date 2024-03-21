@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - My Website</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
+</head>
+<body class="light-mode">
+
+<div class="container">
+    <!-- Content -->
+    <h1 style="color: rgb(139, 12, 12);">PLEASE CONFIRM YOUR EMAIL BEFORE YOU CAN LOGIN,<br>
+         IF NOT YOU WONT BE ABLE TO LOGIN</h1>
+    <h2>Login</h2>
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger" style="color: yellow; font-weight: bold;">
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form><br><br>
+    <p>No Account yet !<a href="{% url 'signup' %}">Signup</a></p><br><br>
+    <p><a href="{% url 'password_reset' %}">Forgot Password?</a></p>
+</div>
+</body>
+</html>

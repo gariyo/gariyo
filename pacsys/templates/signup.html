@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - My Website</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Signup</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Signup</button>
+    </form>
+    {% if user.is_authenticated %}
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p><br><br>
+    {% else %}
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p><br>
+    {% endif %}
+</div>
+
+</body>
+</html>

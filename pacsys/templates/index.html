@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Parcel Tracking System</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}">
+</head>
+<body class="bg-image">
+    <div class="system-icon">
+        <img src="{% static 'images/ic.jpg' %}" alt="System Icon">
+    </div>
+    <h1>Welcome to <br><EM style="color: yellow;">KAKISE BUS COMPANY LIMITED</EM><BR>Parcel Tracking System</h1>
+    <div class="welcome-msg">
+        <p>Please go on to suit your privileges.</p>
+    </div>
+    <div class="buttons-container">
+        <a href="{% url 'login' %}" class="button">Login</a>
+        <a href="{% url 'signup' %}" class="button">Sign Up</a>
+    </div>
+</body>
+</html>

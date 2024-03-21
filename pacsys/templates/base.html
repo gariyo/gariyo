@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Website{% endblock %}</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Dark theme */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+
+        /* Light theme */
+        body.light-mode {
+            background-color: #fff;
+            color: #222;
+        }
+
+        /* Form styles */
+        form {
+            background-color: inherit;
+            color: inherit;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="password"],
+        form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="light-mode">
+
+<div class="container">
+    <!-- Theme switcher -->
+    <div id="theme-switcher">
+        <span onclick="toggleTheme()" style="cursor: pointer;">🌙 <em>Toggle 🫠Theme</em></span>
+    </div>
+
+    <!-- Content -->
+    {% block content %}
+    {% endblock %}
+</div>
+
+<script>
+    // Function to toggle between dark and light themes
+    function toggleTheme() {
+        var body = document.body;
+        body.classList.toggle("dark-mode");
+        body.classList.toggle("light-mode");
+
+        // Store the theme preference in local storage
+        var isDarkMode = body.classList.contains("dark-mode");
+        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    }
+
+    // Check if the user has a theme preference stored in local storage
+    var storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+        toggleTheme(); // Apply dark theme if it was previously selected
+    }
+</script>
+
+</body>
+</html>

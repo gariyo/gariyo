@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcel Details</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleb.css' %}">
+    <style>
+        /* Add your custom CSS styles here */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'register_parcel' %}">Parcel Registration</a></li>
+            <li><a href="{% url 'track_parcel' %}">Parcel TRACKING</a></li>
+            <li><a href="{% url 'admin_panel' %}">ADMIN PRIVILEGE<br> only</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Parcel Details</h1>
+
+        <form>
+            <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for tracking number..">
+        </form>
+
+        <table id="parcelTable">
+            <thead>
+                <tr>
+                    <th>Sender Name</th>
+                    <th>Sender Email</th>
+                    <th>Sender Phone</th>
+                    <th>Sender Address</th>
+                    <th>Recipient Name</th>
+                    <th>Recipient Email</th>
+                    <th>Recipient Phone</th>
+                    <th>Recipient Address</th>
+                    <th>Delivery Date</th>
+                    <th>Delivery Time</th>
+                    <th>Description</th>
+                    <th>Value</th>
+                    <th>Weight</th>
+                    <th>Insurance Required</th>
+                    <th>Signature Confirmation Required</th>
+                    <th>Tracking Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for parcel in parcels %}
+                <tr>
+                    <td>{{ parcel.sender_name }}</td>
+                    <td>{{ parcel.sender_email }}</td>
+                    <td>{{ parcel.sender_phone }}</td>
+                    <td>{{ parcel.sender_address }}</td>
+                    <td>{{ parcel.recipient_name }}</td>
+                    <td>{{ parcel.recipient_email }}</td>
+                    <td>{{ parcel.recipient_phone }}</td>
+                    <td>{{ parcel.recipient_address }}</td>
+                    <td>{{ parcel.delivery_date }}</td>
+                    <td>{{ parcel.delivery_time }}</td>
+                    <td>{{ parcel.description }}</td>
+                    <td>{{ parcel.value }}</td>
+                    <td>{{ parcel.weight }}</td>
+                    <td>{{ parcel.insurance_required }}</td>
+                    <td>{{ parcel.signature_confirmation_required }}</td>
+                    <td>{{ parcel.tracking_number }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="register-button">
+        <a href="{% url 'register_parcel' %}"><button>Register New Parcel</button></a>
+    </div>
+
+    <script>
+        function searchTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("parcelTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[15]; // Change index to the column where tracking number is
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('../images/ib.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh; /* Set full height of the viewport */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container styles */
+.container {
+    width: 300px; /* Adjust width as needed */
+    padding: 20px;
+    background-color: rgba(0, 123, 255, 0.7); /* Transparent blue background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+/* Form styles */
+form {
+    background-color: transparent; /* Transparent form background */
+    color: #fff; /* Light text color */
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form button {
+    width: 90%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+form button {
+    background-color: #0056b3; /* Darker blue */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+form button:hover {
+    background-color: #004080; /* Darker shade on hover */
+}
+

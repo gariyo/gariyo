@@ -1,0 +1,142 @@
+body {
+    background-image: url('../images/ib.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Ensuring full width and height for the header */
+header {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+/* Styling the branding section */
+.branding {
+    display: flex;
+    align-items: center;
+}
+
+.branding img {
+    width: 50px; /* Adjust according to your logo size */
+    height: auto;
+    margin-right: 10px;
+}
+
+.branding h1 {
+    font-size: 1.5rem;
+}
+
+/* Styling the navigation */
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Styling the main content */
+main {
+    padding: 20px;
+}
+
+/* Styling the welcome section */
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Styling the profile section */
+.profile img {
+    width: 100px; /* Adjust according to your profile picture size */
+    height: 100px; /* Adjust according to your profile picture size */
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+/* Styling the message section */
+.message h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.message p {
+    font-size: 1rem;
+}
+
+/* Styling the buttons */
+.buttons {
+    display: flex;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Add your navbar styling here */
+.navbar {
+    background-color: #007bff; /* Navbar background color */
+    color: #fff; /* Navbar text color */
+    padding: 10px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff; /* Logo text color */
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links li a {
+    color: #fff; /* Navbar link color */
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    text-decoration: underline;
+}

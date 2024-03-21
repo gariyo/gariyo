@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="branding">
+            <img src="{% static 'images/ic.jpg' %}" alt="System Logo">
+            <h1>Parcel Tracking System</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'parcel_details' %}">Parcel Details Available</a></li>
+                <li><a href="{% url 'register_parcel' %}">Parcel Registration</a></li>
+                <li><a href="{% url 'track_parcel' %}">Parcel TRACKING</a></li>
+                <li><a href="{% url 'home' %}">Home<br> only</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Admin Panel</h1>
+        
+        <form action="{% url 'update_parcel_status' %}" method="post">
+            {% csrf_token %}
+            <label for="parcel">Select Parcel:</label>
+            <select id="parcel" name="parcel">
+                {% for parcel in parcels %}
+                <option value="{{ parcel.tracking_number }}">{{ parcel.tracking_number }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="status">Update Status:</label>
+            <select id="status" name="status">
+                <option value="in_transit">In Transit</option>
+                <option value="shipping">Shipping</option>
+                <option value="reached">Reached and Ready for Pick</option>
+            </select>
+            
+            <button type="submit">Update Status</button>
+        </form>
+    </div>
+</body>
+</html>

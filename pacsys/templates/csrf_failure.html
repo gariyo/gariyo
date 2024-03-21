@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}CSRF Verification Failed{% endblock %}
+
+{% block content %}
+    <h1>Forbidden (403)</h1>
+    <p>CSRF verification failed. Request aborted.</p>
+    <p>Reason: {{ reason }}</p>
+    <p>If you don't have an account, you can sign up:</p>
+    <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
+{% endblock %}
